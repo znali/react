@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise-1H</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <!-- load external libraries -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <!-- Code written in babel which is use to convert the low level code into high level JS code-->
+    <script type="text/babel">
+      const container = document.querySelector(".js-container");
+      const productCost = 10 + 2 * 8;
+      const shippingCost = 5;
+      const date = dayjs().format("MMMM D, YYYY");
+      const productCart = (
+        <div>
+          <p>Today is: {date}</p>
+          <p>Product cost: ${productCost}</p>
+          <p>Shipping cost: ${shippingCost}</p>
+          <p>Total Cost: ${productCost + shippingCost}</p>
+          <button>Place your order</button>
+        </div>
+      );
+      ReactDOM.createRoot(container).render(productCart);
+    </script>
+  </body>
+</html>

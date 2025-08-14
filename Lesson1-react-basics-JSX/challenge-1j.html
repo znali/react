@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise-1J</title>
+  </head>
+
+  <body>
+    <div class="js-container"></div>
+    <!-- load external libraries -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <!-- Code written in babel which is use to convert the low level code into high level JS code-->
+    <script type="text/babel">
+      const container = document.querySelector(".js-container");
+      const productCost = 10 + 2 * 8;
+      const shippingCost = 5;
+      const date = dayjs().format("MMMM D, YYYY");
+      const myTime = dayjs().format("HH:mm:ss");
+
+      function productCart(time) {
+        return (
+          <div>
+            <p>Today is: {date}</p>
+            <p>Current time: {time}</p>
+            <p>Product cost: ${productCost}</p>
+            <p>Shipping cost: ${shippingCost}</p>
+            <p>Total Cost: ${productCost + shippingCost}</p>
+            <button>Place your order</button>
+          </div>
+        );
+      }
+      // Create a root and render the initial productCart with the current time
+      const root = ReactDOM.createRoot(container);
+      root.render(productCart(myTime));
+
+      // Update the time every second
+      setInterval(() => {
+        const currentTime = dayjs().format("HH:mm:ss");
+        // Re-render the productCart with the updated time
+        root.render(productCart(currentTime));
+      }, 1000);
+    </script>
+  </body>
+</html>
