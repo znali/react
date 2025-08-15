@@ -14,12 +14,11 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
       function ProductDetails({ productName, price, discountPrice }) {
-        console.log(typeof price);
         return (
           <>
             <p>{productName}</p>
             <p>Price: ${price}</p>
-            {discountPrice && undefined }
+            {discountPrice && <p>Discounted price: {discountPrice}</p>}
             <button>Add to cart</button>
           </>
         );
@@ -28,7 +27,11 @@
       function App() {
         return (
           <>
-            <ProductDetails productName="Cotton socks" price={10.9} discountPrice={5.45}/>
+            <ProductDetails
+              productName="Cotton socks"
+              price={10.9}
+              discountPrice={5.45}
+            />
             <ProductDetails productName="Tennis balls" price={6.0} />
             <ProductDetails productName="Plain T-Shirt" price={7.99} />
           </>

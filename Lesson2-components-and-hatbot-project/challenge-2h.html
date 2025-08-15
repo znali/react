@@ -13,6 +13,7 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
+      /*
       function productPrice(discountPrice, price) {
         if (discountPrice) {
           return (
@@ -27,13 +28,23 @@
           return <p>Price: ${price}</p>;
         }
       }
+      */
 
       function ProductDetails({ productName, price, discountPrice }) {
         console.log(typeof price);
         return (
           <>
             <p>{productName}</p>
-            <p>{productPrice(discountPrice, price)}</p>
+            {discountPrice ? (
+              <>
+                <del>
+                  <p>Price: ${price}</p>
+                </del>
+                <p>Discounted price: ${discountPrice}</p>
+              </>
+            ) : (
+              <p>Price: ${price}</p>
+            )}
             <button>Add to cart</button>
           </>
         );

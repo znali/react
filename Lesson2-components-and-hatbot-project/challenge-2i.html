@@ -13,21 +13,6 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      function productPrice(discountPrice, price) {
-        if (discountPrice) {
-          return (
-            <>
-              <del>
-                <p>Price: ${price}</p>
-              </del>
-              <p>Price: ${discountPrice}</p>
-            </>
-          );
-        } else {
-          return <p>Price: ${price}</p>;
-        }
-      }
-
       function ProductDetails({ productName, price, discountPrice }) {
         return (
           <>
